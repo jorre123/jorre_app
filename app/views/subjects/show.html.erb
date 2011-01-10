@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @subject.title %></h1>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<table>
+
+<tr>
+	<td>Vak:</td>
+	<td><%= @subject.title %></td>
+</tr>
+
+<tr>
+	<td>Gebruiker:</td>
+	<td><%= @users.first_name + " " + @users.last_name %></td>
+</tr>
+
+<tr>
+	<td>Toegevoegd:</td>
+	<td><%= @subject.created_at %></td>
+</tr>
+
+<tr>
+	<td>Laatst Gewijzigd:</td>
+	<td><%= @subject.updated_at %></td>
+</tr>
+
+</table>
+
+<%= link_to 'Edit', edit_subject_path(@subject) %> |
+<%= link_to 'Back', subjects_path %>

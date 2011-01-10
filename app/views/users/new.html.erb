@@ -1,0 +1,42 @@
+<h1>Nieuwe gebruiker</h1>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<%= form_tag :action => "create" %>
+<table>
+<tr>
+	<td>Voornaam:</td>
+	<td><%= text_field "user", "first_name" %></td>
+</tr>
+
+<tr>
+	<td>Achternaam:</td>
+	<td><%= text_field "user", "last_name" %></td>
+</tr>
+
+<tr>
+	<td>Email:</td>
+	<td><%= text_field "user", "email" %></td>
+</tr>
+
+<tr>
+	<td>Wachtwoord:</td>
+	<td><%= text_field "user", "password" %></td>
+</tr>
+
+</table>
+
+<%= render 'form' %>
+
+<% $end %>
+
+<%= link_to 'Back', users_path %>

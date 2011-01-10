@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @student.first_name + " " + @student.last_name %></h1>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<table>
+
+<tr>
+	<td>Voornaam:</td>
+	<td><%= @student.first_name %></td>
+</tr>
+
+<tr>
+	<td>Achternaam:</td>
+	<td><%= @student.last_name %></td>
+</tr>
+
+<tr>
+	<td>Richting:</td>
+	<td><%= @student.department %></td>
+</tr>
+
+<tr>
+	<td>Jaar:</td>
+	<td><%= @student.year %></td>
+</tr>
+
+<tr>
+	<td>Toegevoegd:</td>
+	<td><%= @student.created_at %></td>
+</tr>
+
+<tr>
+	<td>Laatste Actie:</td>
+	<td><%= @student.updated_at %></td>
+</tr>
+
+</table>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

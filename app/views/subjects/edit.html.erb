@@ -1,0 +1,39 @@
+<h1><%= @subject.title %> aanpassen</h1>
+
+<%= form_tag :action => "update" %>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<table>
+
+<tr>
+	<td>Vak:</td>
+	<td><%= text_field "subject", "title"%></td>
+</tr>
+
+<tr>
+	<td>Gebruiker:</td>
+	<td>
+	<select id="subject_user" name="subject[user]">
+		<% @users.each do |user| %>
+			<option value="<%= user.id %>"><%= user.first_name %></option>
+		<% end %>
+	</select>
+	</td>
+</tr>
+
+
+</table>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @subject %> |
+<%= link_to 'Back', subjects_path %>

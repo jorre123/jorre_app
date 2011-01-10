@@ -1,0 +1,52 @@
+<h1>Aanwezigheid aanpassen</h1>
+<%= form_tag :action => "update" %>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<table>
+
+	<tr>
+		<td>Vak:</td>
+		<td>
+		<select id="presence_subject_id" name="presence[subject_id]">
+			<% @subjects.each do |subject| %>
+				<option value="<%= subject.id %>"><%= subject.title %></option>
+			<% end %>
+		</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Student</td>
+		<td>
+		<select id="presence_student_id" name="presence[student_id]">
+			<% @students.each do |student| %>
+				<option value="<%= student.id %>"><%= student.first_name + " " +  student.last_name %></option>
+			<% end %>
+		</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Aanwezig</td>
+		<td>
+		<%= check_box "presence", "presence"%>
+		</td>
+	</tr>
+	
+	
+</table>
+
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @presence %> |
+<%= link_to 'Back', presences_path %>

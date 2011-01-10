@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @students.first_name + " " + @students.last_name %></h1>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<table>
+
+<tr>
+	<td>Vak:</td>
+	<td><%= @subjects.title %></td>
+</tr>
+
+<tr>
+	<td>Student:</td>
+	<td><%= @students.first_name + " " + @students.last_name %></td>
+</tr>
+
+<tr>
+	<td>Aanwezig:</td>
+	
+	<% if presence.presence ==  1 %>
+		<td>Ja</td>
+	<% else %>
+		<td>Nee</td>
+	<% end %>
+	
+</tr>
+
+<tr>
+	<td>Datum:</td>
+	<td><%= @presence.created_at %></td>
+</tr>
+
+<tr>
+	<td>Laatst Gewijzigd:</td>
+	<td><%= @presence.updated_at %></td>
+</tr>
+
+</table>
+
+
+
+<%= link_to 'Edit', edit_presence_path(@presence) %> |
+<%= link_to 'Back', presences_path %>

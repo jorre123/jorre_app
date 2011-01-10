@@ -1,0 +1,45 @@
+<h1>Vakken</h1>
+
+<%= link_to 'Users', users_path %>
+
+<%= link_to 'Students', students_path %>
+
+<%= link_to 'Subjects', subjects_path %>
+
+<%= link_to 'Presences', presences_path %>
+
+<%= link_to "logout",:controller => "users", :action => "logout" %>
+
+<table border="solid black">
+  <tr>
+    <th>Vak</th>
+    <th>Gebruiker</th>
+    <th>Toegevoegd</th>
+	<th>Laatste Actie</th>
+	<th></th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% @subjects.each do |subject| %>
+  <tr>
+	<td><%= subject.title %></td>
+	
+	<% @users.each do |user| %>
+		<% if user.id ==  subject.user %>
+			<td><%= user.first_name %></td>
+		<% end %>
+	<% end %>
+	
+	<td><%= subject.created_at %></td>
+	<td><%= subject.updated_at %></td>
+    <td><%= link_to 'Show', subject %></td>
+    <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
+    <td><%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subject', new_subject_path %>
